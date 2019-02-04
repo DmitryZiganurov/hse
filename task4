@@ -1,0 +1,18 @@
+x = [0, 3, 5]
+y = [0, 9, 25]
+
+x0 = 8
+y0 = 0
+i = 0
+N=3
+while i<=N-1:
+    l=1.0
+    j=0
+    while j<=N-1:
+        if j==i:
+            continue
+        l=l*(x0-x[j])/(x[i]-x[j])
+        j=j+1
+    y0=y0+y[i]*l
+    i=i+1
+print(y0)
