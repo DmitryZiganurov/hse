@@ -1,0 +1,12 @@
+dic = {'Jack':3, 'Nick':6, 'Sam':8, 'Kate':3}
+marks = {}
+
+for name in dic.keys():
+    mark = dic[name]
+    if marks.get(mark)==None:
+        marks[mark]=[]
+        marks[mark].append(name)
+    else:
+        marks[mark].append(name)
+
+print(marks)
