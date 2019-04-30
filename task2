@@ -1,0 +1,17 @@
+a = 1
+b = 1
+c = 0
+D = b*b-4*a*c
+if D==0:
+    x = (-b+math.sqrt(D))/(2*a)
+    print("Корень уравнения: "+ str(x))
+elif D>0:
+    x1 = (-b+math.sqrt(D))/(2*a)
+    x2 = (-b-math.sqrt(D))/(2*a)
+    print("Первый корень: "+ str(x1))
+    print("Второй корень: "+ str(x2))
+else:
+    x1R = (-b)/(2*a)
+    x1I = math.sqrt(-D)/(2*a)
+    print("Первый корень: "+ str(x1R)+"+"+str(x1I)+"i")
+    print("Второй корень: "+ str(x1R)+"-"+str(x1I)+"i")
