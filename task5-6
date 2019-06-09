@@ -1,0 +1,37 @@
+import numpy as np
+import matplotlib.pyplot as plt
+
+#f(x)=1/(25x^2+1)
+
+def lagr(x,y,x0):
+    y0 = 0 #значение функции f(x0)
+    i = 0
+    N=len(x)
+    while i<=N-1:
+        l=1.0
+        j=0
+        while j<=N-1:
+            if j==i:
+                j=j+1
+                continue
+            l=l*(x0-x[j])/(x[i]-x[j])
+            j=j+1
+        y0=y0+y[i]*l
+        i=i+1
+    return y0
+
+def f(x):
+    return 1/(25*x**2 + 1)
+
+x = np.arange(-1, 1.1, 0.2)
+y = [f(_) for _ in x]
+
+xcheb = [np.cos(np.pi*(2*k)/20) for k in range(1, 11)]
+ycheb = [f(_) for _ in xcheb]
+
+xnew = np.arange(-1, 1, 0.0001)
+ynew1 = [lagr(x, y, _) for _ in xnew]
+ynew2 = [lagr(xcheb, ycheb, _) for _ in xnew]
+
+plt.plot(xnew,ynew1) #интерполяция Лагранжа
+plt.plot(xnew,ynew2) #интерполяция узлами Чебышева
